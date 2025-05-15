@@ -12,13 +12,14 @@ use App\Http\Controllers\AuthController;
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-Route::get('/users', [AuthController::class, 'register']);
+Route::post('/checkAuth', [AuthController::class, 'checkAuth'])->middleware('auth:sanctum');
+
 
 Route::get('users', [UserController::class, 'index'])->middleware('auth:sanctum');
-Route::post('users', [UserController::class, 'store']);
+Route::post('users', [UserController::class, 'store'])->middleware('auth:sanctum');;
 Route::get('users/{id}', [UserController::class, 'show'])->middleware('auth:sanctum');
-Route::patch('users/{id}', [UserController::class, 'update']);
-Route::delete('users/{id}', [UserController::class, 'destroy']);
+Route::patch('users/{id}', [UserController::class, 'update'])->middleware('auth:sanctum');;
+Route::delete('users/{id}', [UserController::class, 'destroy'])->middleware('auth:sanctum');;
 
 Route::get('/stores', [StoresOutletsController::class, 'index'])->middleware('auth:sanctum');
 Route::post('/stores', [StoresOutletsController::class, 'store'])->middleware('auth:sanctum');

@@ -51,7 +51,7 @@ class AuthController extends Controller
     }
 }
 
-    public function CheckAuth(Request $request){
+    public function checkAuth(Request $request){
         $user = request()->user();
         if(!$user){
             return $this->Unauthorized();

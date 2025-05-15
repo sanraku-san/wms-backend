@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger("store_id");
             $table->unsignedBigInteger("transaction_type_id");
             $table->decimal("total_transaction_price", 16, 2)->default(0);
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
 
             
             $table->foreign("user_id")->references("id")->on("users");

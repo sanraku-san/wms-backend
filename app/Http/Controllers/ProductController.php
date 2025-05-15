@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -40,7 +41,7 @@ class ProductController extends Controller
             "name" => "required|max:255|unique:products|string",
             "description" => "required|max:255|string",
             "price" => "required|numeric|max:999999999|min:0",
-            // "image" => "required|mimes:jpg,jpeg,png,jfif|image",
+            "image" => "required|mimes:jpg,jpeg,png,jfif,webp|image|max:8192",
             "barcode" => "required|string|max:255|unique:products",
             "category_id" => "required|exists:categories,id",
         ]);
@@ -49,7 +50,20 @@ class ProductController extends Controller
             return $this->BadRequest($validator);
         }
 
-        $products = Product::create($request->all());
+        $imageName = time().'.'.$request->image->extension();
+
+        $request->image->move(public_path('/images/products/'),$imageName);
+
+        $products = new Product();
+
+        $products->name = $inputs["name"];
+        $products->description = $inputs["description"];
+        $products->price = $inputs["price"];
+        $products->image = 'images/products/'.$imageName;
+        $products->barcode = $inputs["barcode"];
+        $products->category_id = $inputs["category_id"];
+        $products->save();
+
         return $this->Created($products);
     }
 
@@ -108,8 +122,8 @@ class ProductController extends Controller
             "name" => "sometimes|alpha_dash|unique:products,name,$id|min:4|max:64",
             "description" => "sometimes|max:255|string",
             "price" => "sometimes|numeric|max:999999999|min:0",
-            // "image" => "sometimes|mimes:jpg,jpeg,png,jfif|image",
-            "barcode" => "sometimes|string|max:255unique:products,barcode,$id|",
+            "image" => "sometimes|mimes:jpg,jpeg,png,jfif|image|max:8192",
+            "barcode" => "sometimes|string|max:255|unique:products,barcode,$id|",
             "category_id" => "sometimes|exists:categories,id",
         ]);
 

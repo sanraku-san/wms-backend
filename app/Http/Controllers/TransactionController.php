@@ -114,16 +114,32 @@ class TransactionController extends Controller
      */
     public function destroy(string $id)
     {
-        if(!request()->user()->can('delete transaction')){
-            return $this->Forbidden();
-        }
-        
-        $transactions = Transaction::find($id);
-        if(!$transactions){
-            return $this->NotFound();
+    if (!request()->user()->can('delete transaction')) {
+        return $this->Forbidden();
+    }
+
+    $transactions = Transaction::with('products')->find($id);
+    if (!$transactions) {
+        return $this->NotFound();
+    }
+
+    $products = Product::all();
+
+    foreach ($transactions->products as $product) {
+        $p = $products->where("id", $product->id)->first();
+
+        if ($transactions->transaction_type_id == 1) {
+            $p->stock = $p->stock - $product->pivot->quantity;
+        } else {
+            $p->stock = $p->stock + $product->pivot->quantity;
         }
 
-        $transactions->delete();
-        return $this->Success($transactions, "Deleted");
+        $p->save();
+    }
+
+    $transactions->products()->detach();
+    $transactions->delete();
+
+    return $this->Success($transactions, "Transaction and related updates reversed successfully.");
     }
 }

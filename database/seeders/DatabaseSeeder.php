@@ -88,6 +88,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "1010101010",
             "category_id"=> 1,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -95,8 +96,9 @@ class DatabaseSeeder extends Seeder
             "description"=> "Oreo Chocolate Cookies 120g",
             "price"=> 50.00,
             "barcode"=> "1010101011",
-            "category_id"=> 1,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
+            "category_id"=> 1,
         ]);
 
         Product::create([
@@ -106,6 +108,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "2020202020",
             "category_id"=> 2,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -115,6 +118,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "2020202021",
             "category_id"=> 2,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -124,6 +128,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "3030303030",
             "category_id"=> 3,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -133,6 +138,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "3030303031",
             "category_id"=> 3,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -142,6 +148,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "4040404040",
             "category_id"=> 4,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -151,6 +158,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "4040404041",
             "category_id"=> 4,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -160,6 +168,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "5050505050",
             "category_id"=> 5,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Product::create([
@@ -169,6 +178,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "5050505051",
             "category_id"=> 5,
             "stock"=> 100,
+            "image"=> "images/products/defaultimage.webp",
         ]);
 
         Stores_Outlets::create([

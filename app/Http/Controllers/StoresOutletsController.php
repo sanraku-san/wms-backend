@@ -30,7 +30,7 @@ class StoresOutletsController extends Controller
         }
 
         $validator = validator()->make($request->all(), [
-            "name" => "required|alpha_dash|unique:stores__outlets|min:4|max:64",
+            "name" => "required|string|unique:stores__outlets|min:4|max:64",
             "address" => "required|string|unique:stores__outlets|min:4|max:255",
             "contact_number" => "required|phone:PH|unique:stores__outlets",
             // "contact_number" => "required|phone:PH|unique:stores__outlets",
@@ -75,7 +75,7 @@ class StoresOutletsController extends Controller
         }
 
         $validator = validator()->make($request->all(), [
-            "name" => "sometimes|alpha_dash|unique:stores__outlets,name,$id|min:4|max:64",
+            "name" => "sometimes|string|unique:stores__outlets,name,$id|min:4|max:64",
             "address" => "sometimes|string|unique:stores__outlets,address,$id|min:4|max:255",
             "contact_number" => "sometimes|phone:PH|unique:stores__outlets,contact_number,$id",
         ]);

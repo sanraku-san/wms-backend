@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -39,7 +40,7 @@ class UserController extends Controller
         "username" => "required|alpha_dash|unique:users|min:4|max:32",
         "email" => "required|email|unique:users,email|min:8|max:64",
         "password" => "required|string|min:8",
-        "role_id" => "required|exists:roles,id",
+        "role_id" => "required",
         "first_name" => "required|alpha|min:2|max:32",
         "last_name" => "required|alpha|min:2|max:32",
         "contact_number" => "required|numeric|digits_between:10,12",
@@ -52,6 +53,15 @@ class UserController extends Controller
         $user = User::create($validator->validated());
     
         $user->profile()->create($validator->validated());
+
+        if(request()->has("role_id")){
+            $role = Role::find($request->input("role_id")); // Find the role by ID
+        if ($role) {
+            $user->assignRole($role->name); // Assign the role by its name
+        } else {
+            return $this->BadRequest("Invalid role_id provided."); // Handle invalid role_id
+    }
+        }
     
         return $this->Created($user);
         }
@@ -133,7 +143,8 @@ class UserController extends Controller
         if(!$user){
             return $this->NotFound();
         }
-
+        
+        $user->profile()->delete();
         $user->delete();
         return $this->Success($user, "Deleted");
     }

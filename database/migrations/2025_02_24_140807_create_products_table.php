@@ -17,7 +17,9 @@ return new class extends Migration
             $table->string("description");
             $table->decimal("price", 16, 2);
             $table->string("barcode")->unique();
-            $table->string("stock")->nullable();
+            $table->string("stock")->default(0);
+            $table->string('image')->nullable();
+            
             
             $table->unsignedBigInteger("category_id");
             

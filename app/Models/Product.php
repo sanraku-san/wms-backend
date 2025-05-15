@@ -9,7 +9,7 @@ use App\Models\Transaction;
 class Product extends Model
 {
     protected $fillable = [
-        "name", "description", "price", "barcode", "category_id", "stock"
+        "name", "description", "price", "barcode", "category_id", "stock", "image",
     ];
 
     public function category(){
