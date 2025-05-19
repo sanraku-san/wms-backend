@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             "last_name"=> "Admin",
             "contact_number"=> "0123456789",
             "user_id"=> 1,
+            "image"=> "images/users/admin.jpg",
         ]);
         
         User::create([
@@ -88,7 +89,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "1010101010",
             "category_id"=> 1,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/koko.png",
         ]);
 
         Product::create([
@@ -97,7 +98,7 @@ class DatabaseSeeder extends Seeder
             "price"=> 50.00,
             "barcode"=> "1010101011",
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/oreo.png",
             "category_id"=> 1,
         ]);
 
@@ -108,7 +109,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "2020202020",
             "category_id"=> 2,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/shirt.png",
         ]);
 
         Product::create([
@@ -118,7 +119,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "2020202021",
             "category_id"=> 2,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/jeans.png",
         ]);
 
         Product::create([
@@ -128,7 +129,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "3030303030",
             "category_id"=> 3,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/phone.png",
         ]);
 
         Product::create([
@@ -138,7 +139,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "3030303031",
             "category_id"=> 3,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/laptop.png",
         ]);
 
         Product::create([
@@ -148,7 +149,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "4040404040",
             "category_id"=> 4,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/sofa.png",
         ]);
 
         Product::create([
@@ -158,7 +159,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "4040404041",
             "category_id"=> 4,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/table.png",
         ]);
 
         Product::create([
@@ -168,7 +169,7 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "5050505050",
             "category_id"=> 5,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/action.png",
         ]);
 
         Product::create([
@@ -178,7 +179,16 @@ class DatabaseSeeder extends Seeder
             "barcode"=> "5050505051",
             "category_id"=> 5,
             "stock"=> 100,
-            "image"=> "images/products/defaultimage.webp",
+            "image"=> "images/products/puzzle.png",
+        ]);
+        Product::create([
+            "name"=> "Alden Photocard",
+            "description"=> "Alden Richards Tongue Out Picture",
+            "price"=> 5000000.00,
+            "barcode"=> "9999999999",
+            "category_id"=> 1,
+            "stock"=> 1,
+            "image"=> "images/products/admin.jpg",
         ]);
 
         Stores_Outlets::create([

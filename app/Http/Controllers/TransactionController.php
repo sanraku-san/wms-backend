@@ -18,7 +18,16 @@ class TransactionController extends Controller
         }
 
         $transactions = Transaction::with('transaction_type')->with('user')->with('store')->with('products')->get();
-            return $this->Success($transactions);
+        // ✅ Convert product images to full URLs
+    foreach ($transactions as $transaction) {
+        foreach ($transaction->products as $product) {
+            if (!empty($product->image)) {
+                $product->image = asset($product->image);
+            }
+        }
+    }
+
+    return $this->Success($transactions);
     }
     
     /**
@@ -103,6 +112,11 @@ class TransactionController extends Controller
         if(empty($transactions)){
             return $this->NotFound();
         }
+         foreach ($transaction->products as $product) {
+        if (!empty($product->image)) {
+            $product->image = asset($product->image); // ✅ Fix image URL
+        }
+    }
 
         $transactions->products;
 

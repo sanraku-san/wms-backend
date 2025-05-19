@@ -16,7 +16,8 @@ Route::post('/checkAuth', [AuthController::class, 'checkAuth'])->middleware('aut
 
 
 Route::get('users', [UserController::class, 'index'])->middleware('auth:sanctum');
-Route::post('users', [UserController::class, 'store'])->middleware('auth:sanctum');;
+Route::get('users', [UserController::class, 'me'])->middleware('auth:sanctum');
+Route::post('users', [UserController::class, 'store'])->middleware('auth:sanctum');
 Route::get('users/{id}', [UserController::class, 'show'])->middleware('auth:sanctum');
 Route::patch('users/{id}', [UserController::class, 'update'])->middleware('auth:sanctum');;
 Route::delete('users/{id}', [UserController::class, 'destroy'])->middleware('auth:sanctum');;
@@ -48,7 +49,7 @@ Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])->
 Route::get('/products', [ProductController::class, 'index'])->middleware('auth:sanctum');
 Route::post('/products', [ProductController::class, 'store'])->middleware('auth:sanctum');
 Route::get('/products/{id}', [ProductController::class, 'show'])->middleware('auth:sanctum');
-Route::patch('/products/{id}', [ProductController::class, 'update'])->middleware('auth:sanctum');
+Route::put('/products/{id}', [ProductController::class, 'update'])->middleware('auth:sanctum');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->middleware('auth:sanctum');
 Route::get('search/products/{search}', [ProductController::class, 'searchProduct'])->middleware('auth:sanctum');
 
