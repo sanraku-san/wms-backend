@@ -81,6 +81,10 @@ class DatabaseSeeder extends Seeder
         Category::create([
             "name"=> "Toys",
         ]);
+
+        Category::create([
+            "name" => "Health & Wellness",
+        ]);
         
         Product::create([
             "name"=> "KKCRNCH 100",
@@ -245,7 +249,7 @@ class DatabaseSeeder extends Seeder
             "description"=> "High-density, non-slip yoga mat provides excellent cushioning and grip for all exercises.",
             "price"=> 950.00,
             "barcode"=> "1000000006",
-            "category_id"=> 6,
+            "category_id"=> 5,
             "stock"=> 40,
             "image"=> "images/products/yoga_mat_non_slip.jpg",
         ]);
