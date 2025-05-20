@@ -17,7 +17,7 @@ class UserController extends Controller
         return $this->Forbidden();
     }
 
-    $users = User::with("profile")->get();
+    $users = User::with(['profile', 'roles'])->get();
 
     foreach ($users as $user) {
         if ($user->image) {
@@ -96,7 +96,7 @@ class UserController extends Controller
 
         $users = User::find($id);
         
-        $users->profile;
+        $users->profile->roles;
         
         if(empty($users)){
             return $this->NotFound();

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -103,5 +105,15 @@ class CategoryController extends Controller
 
         $categories->delete();
         return $this->Success($categories, "Deleted");
+    }
+
+    public function countCategory()
+    {
+        if(!request()->user()->can('index categories')){
+            return $this->Forbidden();
+        }
+
+        $categories = Category::count();
+        return $this->Success($categories);
     }
 }
