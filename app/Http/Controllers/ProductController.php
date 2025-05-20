@@ -49,6 +49,7 @@ class ProductController extends Controller
             "description" => "required|max:255|string",
             "price" => "required|numeric|max:999999999|min:0",
             "image" => "nullable|mimes:jpg,jpeg,png,jfif,webp|image|max:8192",
+            "stock" => "sometimes|integer|min:0",
             "barcode" => "required|string|max:255|unique:products",
             "category_id" => "required|exists:categories,id",
         ]);
@@ -68,6 +69,7 @@ class ProductController extends Controller
         $products->price = $inputs["price"];
         $products->image = 'images/products/'.$imageName;
         $products->barcode = $inputs["barcode"];
+        $products->stock = $inputs["stock"];
         $products->category_id = $inputs["category_id"];
         $products->save();
 

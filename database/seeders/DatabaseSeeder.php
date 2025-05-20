@@ -194,15 +194,6 @@ class DatabaseSeeder extends Seeder
             "stock"=> 1,
             "image"=> "images/products/admin.jpg",
         ]);
-        Product::create([
-            "name"=> "Premium Ergonomic Office Chair",
-            "description"=> "High-back mesh chair with lumbar support and adjustable armrests for ultimate comfort.",
-            "price"=> 12500.00,
-            "barcode"=> "1000000001",
-            "category_id"=> 1,
-            "stock"=> 20,
-            "image"=> "images/products/office_chair_premium.jpg",
-        ]);
 
         Product::create([
             "name"=> "Wireless Bluetooth Headphones",
@@ -602,16 +593,6 @@ class DatabaseSeeder extends Seeder
             "category_id"=> 5,
             "stock"=> 90,
             "image"=> "images/products/protein_shaker_bottle.jpg",
-        ]);
-
-        Product::create([
-            "name"=> "Non-Stick Frying Pan (28cm)",
-            "description"=> "Durable non-stick frying pan for healthy cooking, easy to clean.",
-            "price"=> 1800.00,
-            "barcode"=> "1000000042",
-            "category_id"=> 6,
-            "stock"=> 30,
-            "image"=> "images/products/frying_pan_nonstick.jpg",
         ]);
 
         Product::create([
