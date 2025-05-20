@@ -112,7 +112,7 @@ class TransactionController extends Controller
         if(empty($transactions)){
             return $this->NotFound();
         }
-         foreach ($transaction->products as $product) {
+         foreach ($transactions->products as $product) {
         if (!empty($product->image)) {
             $product->image = asset($product->image); // ✅ Fix image URL
         }
